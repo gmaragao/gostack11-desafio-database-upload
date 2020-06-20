@@ -19,8 +19,6 @@ class CreateTransactionService {
   }: Request): Promise<Transaction> {
     const transactionsRepository = getRepository(Transaction);
 
-    console.log('category id', category_id);
-
     try {
       const newTransaction = await transactionsRepository.create({
         title,
@@ -29,10 +27,8 @@ class CreateTransactionService {
         category_id,
       });
 
-      console.log('criando transaction', newTransaction);
-
       const response = await transactionsRepository.save(newTransaction);
-      console.log('resposta', response);
+
       return newTransaction;
     } catch (err) {
       console.log(err);
