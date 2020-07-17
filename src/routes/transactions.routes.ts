@@ -112,7 +112,7 @@ transactionsRouter.delete('/:id', async (request, response) => {
 
 transactionsRouter.post(
   '/import',
-  upload.single('template'),
+  upload.single('file'),
   async (request, response) => {
     const importTransactionsService = new ImportTransactionsService();
 
